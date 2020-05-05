@@ -5,36 +5,94 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.indigo,
         body: SafeArea(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
-                width: 100.0,
-                color: Colors.red,
+              SizedBox(
+                height: 12.0,
               ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 100.0,
-                      width: 100.0,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      height: 100.0,
-                      width: 100.0,
-                      color: Colors.green,
-                    ),
-                  ],
+              CircleAvatar(
+                radius: 50.0,
+                backgroundImage: AssetImage('images/poet.jpg'),
+              ),
+              Text(
+                'Timothy K Serem',
+                style: TextStyle(
+                    fontSize: 32.0,
+                    color: Colors.white,
+                    fontFamily: 'Pacifico'),
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              Text(
+                'FLUTTER DEVELOPER',
+                style: TextStyle(
+                  fontFamily: 'SourceSansPro',
+                  color: Colors.indigo.shade100,
+                  fontSize: 18.0,
+                  letterSpacing: 2.5,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Container(
-                width: 100.0,
-                color: Colors.blue,
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.indigo.shade100,
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.phone,
+                        color: Colors.indigo.shade900,
+                      ),
+                      SizedBox(
+                        width: 12.0,
+                      ),
+                      Text(
+                        '+254 711 928 250',
+                        style: TextStyle(
+                          color: Colors.indigo.shade900,
+                          fontFamily: 'SourceSansPro',
+                          fontSize: 20.0,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.email,
+                        color: Colors.indigo.shade900,
+                      ),
+                      SizedBox(
+                        width: 12.0,
+                      ),
+                      Text(
+                        'theecodepoet@gmail.com',
+                        style: TextStyle(
+                          color: Colors.indigo.shade900,
+                          fontFamily: 'SourceSansPro',
+                          fontSize: 20.0,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
