@@ -48,7 +48,7 @@ void main() {
               ),
               FlatButton(
                 onPressed: () {
-                  const phone = 'tel:+254 711 928 250';
+                  const phone = 'tel:+254 786 135 712';
                   launchUrl(phone);
                 },
                 child: Card(
@@ -66,7 +66,7 @@ void main() {
                           width: 12.0,
                         ),
                         Text(
-                          '+254 711 928 250',
+                          '+254 786 135 712',
                           style: TextStyle(
                             color: Colors.indigo.shade900,
                             fontFamily: 'SourceSansPro',
