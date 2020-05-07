@@ -46,8 +46,11 @@ void main() {
                   color: Colors.indigo.shade100,
                 ),
               ),
-              InkWell(
-                onTap: launchDialer,
+              FlatButton(
+                onPressed: () {
+                  const phone = 'tel:+254 711 928 250';
+                  launchUrl(phone);
+                },
                 child: Card(
                   margin:
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -75,8 +78,11 @@ void main() {
                   ),
                 ),
               ),
-              InkWell(
-                onTap: openMail,
+              FlatButton(
+                onPressed: () {
+                  const email = 'mailto:theecodepoet@gmail.com';
+                  launchUrl(email);
+                },
                 child: Card(
                   margin:
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -112,17 +118,7 @@ void main() {
   );
 }
 
-launchDialer() async {
-  const url = 'tel:+254 711 928 250';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-openMail() async {
-  const url = 'mailto:theecodepoet@gmail.com';
+void launchUrl(url) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
