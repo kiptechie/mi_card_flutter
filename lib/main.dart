@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.indigo,
         body: SafeArea(
@@ -44,53 +46,61 @@ void main() {
                   color: Colors.indigo.shade100,
                 ),
               ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.phone,
-                        color: Colors.indigo.shade900,
-                      ),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Text(
-                        '+254 711 928 250',
-                        style: TextStyle(
+              InkWell(
+                onTap: launchDialer,
+                child: Card(
+                  margin:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.phone,
                           color: Colors.indigo.shade900,
-                          fontFamily: 'SourceSansPro',
-                          fontSize: 20.0,
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          width: 12.0,
+                        ),
+                        Text(
+                          '+254 711 928 250',
+                          style: TextStyle(
+                            color: Colors.indigo.shade900,
+                            fontFamily: 'SourceSansPro',
+                            fontSize: 20.0,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.email,
-                        color: Colors.indigo.shade900,
-                      ),
-                      SizedBox(
-                        width: 12.0,
-                      ),
-                      Text(
-                        'theecodepoet@gmail.com',
-                        style: TextStyle(
+              InkWell(
+                onTap: openMail,
+                child: Card(
+                  margin:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.email,
                           color: Colors.indigo.shade900,
-                          fontFamily: 'SourceSansPro',
-                          fontSize: 20.0,
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          width: 12.0,
+                        ),
+                        Text(
+                          'theecodepoet@gmail.com',
+                          style: TextStyle(
+                            color: Colors.indigo.shade900,
+                            fontFamily: 'SourceSansPro',
+                            fontSize: 20.0,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -100,4 +110,22 @@ void main() {
       ),
     ),
   );
+}
+
+launchDialer() async {
+  const url = 'tel:+254 711 928 250';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+openMail() async {
+  const url = 'mailto:theecodepoet@gmail.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }
